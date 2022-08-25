@@ -1,0 +1,62 @@
+<h1> Add Employee </h1>
+	<div> {{errorMessage}} </div>
+	<form [formGroup]="peopleForm" (ngSubmit)="submit()">
+
+ {{formDataSubmittedtMessage}}
+ 
+
+			<div fxFlex fxLayout="row wrap" fxLayoutGap="20px">
+
+				<mat-form-field>
+					<input matInput placeholder="First name" formControlName="fName" required>
+				</mat-form-field>
+
+				<mat-form-field>
+					<input matInput placeholder="Last name" formControlName="lName"required>
+				</mat-form-field>
+
+				<mat-form-field>
+					<input matInput placeholder="Phone number" formControlName="phone"required>
+				</mat-form-field>
+
+				<mat-form-field appearance="fill">
+					<mat-select placeholder="Licence Class*" formControlName="lClass" required>
+						<mat-option value="car">C - Car</mat-option>
+						<mat-option value="lightRigid">LR - Light Rigid</mat-option>
+						<mat-option value="mediumRigid">MR - Medium Rigid</mat-option>
+						<mat-option value="heavyRigid">HR - Heavy Rigid</mat-option>
+						<mat-option value="heavyCombination">HC - Heavy Combination</mat-option>
+						<mat-option value="multiCombination">MC - Multi Combination</mat-option>
+					</mat-select>
+				</mat-form-field>
+
+				<h4>Forklift Licence:</h4>
+				<mat-radio-group aria-label="Select an option" formControlName="forkLice">
+					<mat-radio-button value="trueFl">Yes</mat-radio-button> 
+					<mat-radio-button value="falseFl" checked>No</mat-radio-button>
+				</mat-radio-group>
+
+				<mat-form-field appearance="fill" >
+					<mat-label>Licence Expiry</mat-label>
+					<input matInput [matDatepicker]="picker" formControlName="eDate" required>
+					<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+					<mat-datepicker #picker></mat-datepicker>
+				</mat-form-field>
+
+				<mat-form-field>
+					<input matInput placeholder="Licence number" formControlName="lNumber" required>
+				</mat-form-field>
+
+				<div fxFlex class="register-but">
+					<button mat-raised-button color="primary">submit</button>
+				</div>
+
+			</div>
+
+
+	
+
+	</form>
+  <!-- this is here to show the dynamic addition of the data being entered
+				it is just for testing/debugging purposes -->
+	<br> <!--{{ peopleForm.value | json }} -->

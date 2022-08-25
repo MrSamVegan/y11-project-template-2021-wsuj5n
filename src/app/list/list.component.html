@@ -1,0 +1,80 @@
+<!--Lists all names in the database-->
+<h1>LIST PAGE </h1>
+<h3>Added Employees Will Show Up Here <h3>
+
+
+<table border='1' width="95%" class="table">
+<tr bgcolor='#363540'>
+  <td width='40%'> First Name
+  </td>
+  <td width='40%' align=center> Last Name
+  </td>
+  <td width='40%' align=center> Phone Number
+</td>
+<td width='40%' align=center> Licence Number
+</td>
+<td width='40%' align=center> Licence Class
+</td>
+<td width='40%' align=center> Expiry Date
+</td>
+<td width='40%' align=center> Forklift
+</td>
+<td width='40%' align=center> Edit
+</td>
+</tr>
+<tr *ngFor="let item of people; let i=index">
+  <td>
+    {{item.fName}} 
+  </td>
+
+
+  <td>
+  {{item.lName}}
+</td>
+
+
+
+<td>
+{{item.phone}}
+
+
+
+
+
+
+
+
+<td>
+{{item.lNumber}} 
+</td>
+
+<td>
+{{item.lClass}} 
+</td>
+
+<td>
+ {{item.eDate | date}} 
+</td>
+
+
+<td> 
+{{item.forkLice}}
+</td>
+
+
+
+  <td>
+    <button mat-icon-button  [routerLink]="['/edit', i]">       
+      <mat-icon>link</mat-icon>  
+    </button>
+    <button mat-icon-button color="warn"  (click) = openDialog(i) >
+      <mat-icon>delete</mat-icon> 
+    </button>
+  </td>
+</tr>
+</table>
+
+
+
+
+          

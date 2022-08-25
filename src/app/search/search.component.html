@@ -1,0 +1,48 @@
+<!--Lists all names in the database-->
+<h1>LIST PAGE </h1>
+
+<table border='1' width="95%" class="table">
+  <tr bgcolor='#363540'>
+    <td width='60%'> Name
+    </td>
+    <td width='40%' align=center> Edit
+    </td>
+  </tr>
+  <tr *ngFor="let item of people; let i=index">
+    <td>
+    Id: {{i}}   <br>
+    First Name:  {{item.fName}}    <br> 
+    Last Name:    {{item.lName}}   <br> 
+    Mobile Number:    {{item.mNumber}}   <br
+    </td>
+
+    <td>
+      <button mat-icon-button  [routerLink]="['/edit', i]">       
+        <mat-icon>link</mat-icon>  
+      </button>
+      <button mat-icon-button color="warn"  (click) = openDialog(i) >
+        <mat-icon>delete</mat-icon> 
+      </button>
+    </td>
+  </tr>
+</table>
+
+<br>
+<div  fxLayout="column" >  
+  <mat-list-item *ngFor="let item of people; let i=index" >
+  <div fxFlex="auto"> 
+          Id: {{i}}   <br>
+          First Name:  {{item.fName}}    <br> 
+          Last Name:    {{item.lName}}   <br> 
+          Mobile Number:    {{item.mNumber}}   <br>    
+      <button mat-button mat-raised-button color="accent" [routerLink]="['/edit', i]">edit  </button>
+      <button mat-button mat-mini-fab color="warn"  (click) = openDialog(i) > delete  </button>
+    </div>
+  </mat-list-item>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
